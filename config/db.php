@@ -13,10 +13,10 @@ return [
     //'schemaCache' => 'cache',\
 
     'class' => 'yii\db\Connection',
-			'driverName' => '{Ingres II}',
-			'dsn' => 'mysql:host=localhost;dbname=yii2basic',
-			'username' => xx,
-			'password' => xxx,
+			'driverName' => 'mysql',
+			'dsn' => 'mysql:host=127.0.0.1;dbname=DosenAis',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
             'enableSchemaCache' => true,
 
