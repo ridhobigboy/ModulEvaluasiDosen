@@ -21,8 +21,13 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout','signup'],
                 'rules' => [
+                    [
+                        'actions' => ['signup'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
                     [
                         'actions' => ['logout'],
                         'allow' => true,
@@ -141,5 +146,9 @@ class SiteController extends Controller
     {
         $diagram = "ini adalah page diagram";
         return $this->render('diagramHasil');
+    }
+    public function actionCHtmlForm()
+    {
+        return $this->render('chtmlform');
     }
 }
