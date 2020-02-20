@@ -131,24 +131,9 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-
-    public function actionquestion() 
-    {
-        $model = new Question;
-        if($model->status == MyActiveRecord::STATUS_APPROVED ){
-            echo "sukses";
-            die();
-        }
-
-       return $this->render('Question',compact('model'));
-    }
     public  function actionDiagramHasil()
     {
         $diagram = "ini adalah page diagram";
         return $this->render('diagramHasil');
-    }
-    public function actionCHtmlForm()
-    {
-        return $this->render('chtmlform');
     }
 }
