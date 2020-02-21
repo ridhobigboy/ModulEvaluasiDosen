@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\QuestionForm;
+use app\models\KuisionerDosen;
 
 class SiteController extends Controller
 {
@@ -135,5 +136,31 @@ class SiteController extends Controller
     {
         $diagram = "ini adalah page diagram";
         return $this->render('diagramHasil');
+    }
+    
+    public function actionKuisionerDosen()
+    {
+        $model = new KuisionerDosen();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('kuisionerDosen', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionKuisionerKelas()
+    {
+        $model = new KuisionerKelas();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } 
+
+        return $this->render('kuisionerKelas', [
+            'model' => $model,
+        ]);
     }
 }

@@ -54,7 +54,7 @@ AppAsset::register($this);
                 . '</li>'
                 ),
                 [
-                    'label' => 'Question', 'url' =>['site/CHtml-Form'],
+                    'label' => 'Question', 'url' =>['site/kuisioner-dosen'],
                 ],
                 [
                     'label' => 'Diagram Hasil', 'url'=>['site/diagram-hasil'],
