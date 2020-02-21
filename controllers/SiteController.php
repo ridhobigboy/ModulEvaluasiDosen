@@ -163,4 +163,27 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+    public function actionjawabanKuisioner($id)
+    { 
+        $model = JawabanKuisioner::findOne($id);
+
+        if (Yii::$app->request->post()) {
+            $model->load(Yii::$app->request->post());
+
+            if ($model->save()) {
+
+                Yii::$app->session->setFlash('success', 'update input success');
+            }
+            else {
+                Yii::$app->session->setFlash('error', 'update input fail');
+            }
+            return $this->refresh();
+        }
+        else {
+            return $this->render('update',[
+                'model' => $model,
+            ]); 
+        }
+    }
 }
