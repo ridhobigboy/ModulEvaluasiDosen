@@ -186,4 +186,12 @@ class SiteController extends Controller
             ]); 
         }
     }
+
+    public function actionKelas()
+    {
+        $model = model::find()->all();
+        return $this->render('index', [
+            'model' => $model
+        ]);
+    }
 }
