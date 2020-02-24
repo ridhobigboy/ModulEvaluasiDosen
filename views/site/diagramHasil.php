@@ -80,7 +80,7 @@ echo Highcharts::widget([
         "plotShadow": false
     },
     "title": {
-        "text": "Modul<br>Evaluasi<br>Dosen",
+        "text": "Ketepatan<br>Waktu",
         "align": "center",
         "verticalAlign": "middle",
         "y": 60

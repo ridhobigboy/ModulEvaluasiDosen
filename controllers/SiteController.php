@@ -194,4 +194,30 @@ class SiteController extends Controller
             'model' => $model
         ]);
     }
+
+    public function actionMatakuliah()
+    {
+        $model = new Matakuliah();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } 
+
+        return $this->render('Matakuliah', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionProdi() 
+    {
+        $model = new Prodi();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('Prodi', [
+            'model' => $model,
+        ]);
+    }
 }
