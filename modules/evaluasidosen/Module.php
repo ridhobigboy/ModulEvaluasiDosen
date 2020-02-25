@@ -3,7 +3,7 @@
 namespace app\modules\evaluasidosen;
 
 /**
- * Modules module definition class
+ * evaluasi module definition class
  */
 class Module extends \yii\base\Module
 {

@@ -5,7 +5,7 @@ namespace app\modules\evaluasidosen\controllers;
 use yii\web\Controller;
 
 /**
- * Default controller for the `Modules` module
+ * Default controller for the `evaluasi` module
  */
 class DefaultController extends Controller
 {

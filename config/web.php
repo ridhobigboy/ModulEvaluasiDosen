@@ -12,7 +12,7 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'modules' => [
-        'Modules' => [
+        'evaluasi' => [
             'class' => 'app\modules\evaluasidosen\Module',
         ],
     ],
