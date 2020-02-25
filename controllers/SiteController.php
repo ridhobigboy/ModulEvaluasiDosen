@@ -9,8 +9,14 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\QuestionForm;
 use app\models\KuisionerDosen;
+use app\models\Prodi;
+use app\models\Matakuliah;
+use app\models\Kelas;
+use app\models\JawabanKuisioner;
+use app\models\Dosen;
+use app\models\KuisionerKelas;
+
 
 class SiteController extends Controller
 {
