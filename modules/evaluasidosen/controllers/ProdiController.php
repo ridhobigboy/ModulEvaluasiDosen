@@ -4,7 +4,7 @@ namespace app\modules\evaluasidosen\controllers;
 
 use Yii;
 use app\models\Prodi;
-use app\modules\evaluasidosen\models\ProdiSearch;
+use app\models\ProdiSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
