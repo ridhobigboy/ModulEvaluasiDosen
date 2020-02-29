@@ -143,4 +143,8 @@ class SiteController extends Controller
         $diagram = "ini adalah page diagram";
         return $this->render('diagramHasil');
     }
+    public function actionForm()
+    {
+        return $this->render('form');
+    }
 }
