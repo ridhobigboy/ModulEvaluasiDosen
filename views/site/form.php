@@ -77,9 +77,9 @@ function test_input($data) {
 }
 ?>
 
-<h2>PHP Form Validation Example</h2>
+<h2>Modul Evaluasi Dosen</h2>
 <p><span class="error">* required field</span></p>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+<form method="post" action="modules/views/kelas/_form.php">  
 apakah perkuiahaan dimulai tepat waktu:
   <br><br>
   <input type="radio" name="apakah_perkuiahaan_dimulai_tepat_waktu" <?php if (isset($apakah_perkuiahaan_dimulai_tepat_waktu) && $apakah_perkuiahaan_dimulai_tepat_waktu=="sangat tidak setuju") echo "checked";?> value="sangat tidak setuju">sangat tidak setuju
