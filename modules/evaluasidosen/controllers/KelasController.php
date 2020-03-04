@@ -8,6 +8,7 @@ use app\models\KelasSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * KelasController implements the CRUD actions for Kelas model.
@@ -20,6 +21,7 @@ class KelasController extends Controller
     public function behaviors()
     {
         return [
+            TimestampBehavior::className(),
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

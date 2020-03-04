@@ -93,7 +93,7 @@ if($link === false) {
 }
 
 //attemp select query execution
-$sql = "SELECT * FROM kusioner_kelas WHERE 'pertanyaan' = 'apakah perkuliahaan dimulai & diakhiri tepat waktu' AND 'id' = 1 ";
+/*$sql = "SELECT * FROM kusioner_kelas WHERE 'pertanyaan' = 'apakah perkuliahaan dimulai & diakhiri tepat waktu' AND 'id' = 1 ";
 $sql = "SELECT * FROM kusioner_kelas WHERE 'pertanyaan' = 'apakah dosen menguasai materi' AND 'id' = 2 ";
 $sql = "SELECT * FROM kusioner_kelas WHERE 'pertanyaan' = 'apakah dosen memberikan feedback' AND 'id' = 3 ";
 
@@ -121,5 +121,5 @@ if ($result = mysqli_query($link, $sql)) {
     }
 }
 
-mysqli_close($link);
+mysqli_close($link);*/
 ?>
