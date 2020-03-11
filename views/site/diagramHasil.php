@@ -5,6 +5,7 @@
 use yii\helpers\Html;
 use miloschuman\highcharts\Highcharts;
 
+
 $this->title= 'diagramHasil';
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -72,6 +73,14 @@ Highcharts.chart('diagramHasil', {
 */ ?>
 <?php
 
+$this->title = 'data kuisioner dosen';
+
+foreach($dHasil as $values){
+    $a[0]=($values['id']);
+    $b[]=($values['id']);
+    $e[]= array('type'=>'column','id' =>$values['id'],
+    'data'=> array((int)$values['jwb']));
+    }
 echo Highcharts::widget([
    'options'=>'{
     "chart": {
@@ -109,7 +118,7 @@ echo Highcharts::widget([
             "size": "110%"
         }
     },
-   "series": [{
+   "series" =>$e [{
         "type": "pie",  
         "name": "Modul Evaluasi Dosen",
         "innerSize": "50%",
@@ -161,7 +170,7 @@ echo Highcharts::widget([
              "size": "110%"
          }
      },
-    "series": [{
+    "series" =>$e [{
          "type": "pie",  
          "name": "Modul Evaluasi Dosen",
          "innerSize": "50%",
@@ -214,7 +223,7 @@ echo Highcharts::widget([
              "size": "110%"
          }
      },
-    "series": [{
+    "series" =>$e [{
          "type": "pie",  
          "name": "Modul Evaluasi Dosen",
          "innerSize": "50%",
@@ -228,3 +237,55 @@ echo Highcharts::widget([
      }]
     }'
  ]);
+
+ /*echo Highcharts::widget([
+    chart("diagramHasil", '{
+        "chart": {
+            "plotBackgroundColor": "null",
+            "plotBorderWidth": 0,
+            "plotShadow": "false"
+        },
+        title: {
+            text: 'Modul<br>Evaluasi<br>Dosen',
+            align: 'center',
+            verticalAlign: 'middle',
+            y: 60
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        accessibility: {
+            point: {
+                valueSuffix: '%'
+            }
+        },
+        plotOptions: {
+            pie: {
+                dataLabels: {
+                    enabled: true,
+                    distance: -50,
+                    style: {
+                        fontWeight: 'bold',
+                        color: 'white'
+                    }
+                },
+                startAngle: -90,
+                endAngle: 90,
+                center: ['50%', '75%'],
+                size: '110%'
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Modul Evaluasi Dosen',
+            innerSize: '50%',
+            data: [
+                ['Sangat setuju', 58.9],
+                ['Setuju', 13.29],
+                ['Ragu-Ragu', 13],
+                ['Tidak Setuju', 3.78],
+                ['Sangat Tidak Setuju', 3.42],
+            ]
+        }]
+    });
+ ])*/

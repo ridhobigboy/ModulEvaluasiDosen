@@ -140,8 +140,14 @@ class SiteController extends Controller
     }
     public  function actionDiagramHasil()
     {
-        $diagram = "ini adalah page diagram";
-        return $this->render('diagramHasil');
+        $data = Yii::$app->db->createCommand('select 
+        id,
+        sum(jawaban) as jwb
+        from jawaban_kuisioner 
+        group by id')->queryAll();
+        return $this->render('diagramHasil', [
+        'dHasil' => $data
+        ]);
     }
     public function actionForm()
     {
