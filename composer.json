@@ -21,7 +21,8 @@
 	"mdmsoft/yii2-admin": "~1.0",
         "miloschuman/yii2-highcharts-widget": "^7.1",
         "dektrium/yii2-user": "^0.9.14",
-        "wbraganca/yii2-dynamicform": "*"
+        "wbraganca/yii2-dynamicform": "*",
+        "2amigos/yii2-highcharts-widget": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
