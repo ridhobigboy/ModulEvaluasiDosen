@@ -21,7 +21,7 @@ use app\models\KuisionerKelas;
 
     <?= $form->field($model, 'kelas_id')->textInput() ?>
     
-    <?= $form->field($model, 'pertanyaan_id')->textInput() ?>
+    
 
     <?= $form->field($model, 'pertanyaan_id')->dropDownList(
         ArrayHelper::map(KuisionerKelas::find()->all(),'id','pertanyaan_id'),
