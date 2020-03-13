@@ -12,8 +12,8 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'modules' => [
-        'evaluasi' => [
-            'class' => 'app\modules\evaluasidosen\Module',
+        'dosen' => [
+            'class' => 'app\modules\dosen\Module',
         ],
     ],
     'components' => [
