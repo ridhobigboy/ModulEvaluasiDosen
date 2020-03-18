@@ -4,7 +4,7 @@ namespace app\modules\dosen\controllers;
 
 use Yii;
 use app\models\Prodi;
-use app\modules\ProdiSearch;
+use app\models\ProdiSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

@@ -4,7 +4,7 @@ namespace app\modules\dosen\controllers;
 
 use Yii;
 use app\models\JawabanKuisioner;
-use app\modules\JawabanKuisionerSearch;
+use app\models\JawabanKuisionerSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

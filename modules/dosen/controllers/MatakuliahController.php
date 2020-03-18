@@ -4,7 +4,7 @@ namespace app\modules\dosen\controllers;
 
 use Yii;
 use app\models\Matakuliah;
-use app\modules\MatakuliahSearch;
+use app\models\MatakuliahSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

@@ -4,10 +4,11 @@ namespace app\modules\dosen\controllers;
 
 use Yii;
 use app\models\Kelas;
-use app\modules\KelasSearch;
+use app\models\KelasSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+
 
 /**
  * KelasController implements the CRUD actions for Kelas model.

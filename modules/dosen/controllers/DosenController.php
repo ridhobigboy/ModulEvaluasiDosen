@@ -4,7 +4,7 @@ namespace app\modules\dosen\controllers;
 
 use Yii;
 use app\models\Dosen;
-use app\modules\DosenSearch;
+use app\models\DosenSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

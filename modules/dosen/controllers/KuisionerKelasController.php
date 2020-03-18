@@ -2,12 +2,13 @@
 
 namespace app\modules\dosen\controllers;
 
+
 use Yii;
 use app\models\KuisionerKelas;
-use app\modules\KuisionerKelasSearch;
+use app\models\KuisionerKelasSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
+use yii\filters\VerbFilter; 
 
 /**
  * KuisionerKelasController implements the CRUD actions for KuisionerKelas model.
