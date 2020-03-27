@@ -124,5 +124,23 @@ class KuisionerKelasController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('app', 'The requested page does not exist.'));
+    }	
+    public function actionPertanyaan($id){
+        $countBranches = Branches::find()
+            ->where(['pertanyaan_id'=>$id])
+            ->count();
+        $branches = Branches::find()
+            ->where(['pertanyaan_id'=>$id])
+            ->all();
+        if($countBranches > 0)
+        {
+            foreach ($branches as $branch) {
+                echo "<option value'" .$branch->branch_id. "'>".$branch->branch_name."</option>";
+            }
+        }
+        else
+        {
+            echo "<option>-</option>";
+        }
     }
 }
