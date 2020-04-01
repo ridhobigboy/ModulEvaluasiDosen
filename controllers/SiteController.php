@@ -147,7 +147,7 @@ class SiteController extends Controller
         group by id')->queryAll();
         return $this->render('diagramHasil', [
         'dHasil' => $data
-        ]);
+        ]); 
     }
     public function actionForm()
     {
