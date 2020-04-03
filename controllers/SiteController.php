@@ -143,7 +143,7 @@ class SiteController extends Controller
         $data = Yii::$app->db->createCommand('select 
         id,
         sum(jawaban) as jwb
-        from jawaban_kuisioner 
+        from jawaban_kuisioner_log 
         group by id')->queryAll();
         return $this->render('diagramHasil', [
         'dHasil' => $data
