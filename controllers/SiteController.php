@@ -68,7 +68,7 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
+     * Displays homepa      .
      *
      * @return string
      */
@@ -140,14 +140,15 @@ class SiteController extends Controller
     }
     public  function actionDiagramHasil()
     {
-        $data = Yii::$app->db->createCommand('select 
-        id,
-        sum(jawaban) as jwb
-        from jawaban_kuisioner_log 
-        group by id')->queryAll();
-        return $this->render('diagramHasil', [
-        'dHasil' => $data
-        ]); 
+        $sql='SELECT count(id),Jawaban FROM jawaban_kuisioner_log GROUP BY jawaban';
+
+        $dataProvider=new CSqlDataProvider($sql,array(
+            'keyField' => 'id',
+        ));
+
+        $this->render('diagramHasil',array(
+            'dataProvider'=>$dataProvider
+        ));
     }
     public function actionForm()
     {

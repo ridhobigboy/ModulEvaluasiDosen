@@ -1,291 +1,58 @@
+
+
 <?php
+$this->breadcrumbs=array(
+	'Chart'=>array('index'),
+	'Statistik Pengguna',
+);
 
-/* @var $this yii\web\view */
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'tinstrument-form',
+	'enableAjaxValidation'=>false,
+)); ?>
+<center>
+?>
+<?php
+$label=array();
+$nilai=array();
 
-use yii\helpers\Html;
-use miloschuman\highcharts\Highcharts;
+foreach($dataProvider->getData() as $i=>$ii)
+{
+    $label[$i]=$ii['aa'];
+    $nilai[$i]=(int)$ii['count(id)'];
+}
 
-
-$this->title= 'diagramHasil';
-$this->params['breadcrumbs'][] = $this->title;
+$this->widget('application.extensions.highcharts.HighchartsWidget', array(
+   'options'=>array(
+     'chart'=> array('defaultSeriesType'=>'column',),
+      'title' => array('text' => ''),
+      'legend'=>array('enabled'=>false),
+      'xAxis'=>array('categories'=>$label,
+			'title'=>array('text'=>''),),
+      'yAxis'=> array(
+            'min'=> 0,
+            'title'=> array(
+            'text'=>'Jumlah'
+            ),
+        ),
+      'series' => array(
+         array('data' => $nilai)
+      ),
+      'tooltip' => array('formatter' => 'js:function(){ return "<b>"+this.point.name+"</b> :"+this.y; }'),
+      'tooltip' => array(
+		'formatter' => 'js:function() {return "<b>"+ this.x +"</b><br/>"+"Jumlah : "+ this.y; }'
+      ),
+      'plotOptions'=>array('pie'=>(array(
+                    'allowPointSelect'=>true,
+                    'showInLegend'=>true,
+                    'cursor'=>'pointer',
+                )
+            )                       
+        ),
+      'credits'=>array('enabled'=>false),
+   )
+));
 
 ?>
-
-<?php /*
-<div id="diagramHasil"></div>
-
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-<script type="text/javascript">
-
-Highcharts.chart('diagramHasil', {
-    chart: {
-        plotBackgroundColor: null,
-        plotBorderWidth: 0,
-        plotShadow: false
-    },
-    title: {
-        text: 'Modul<br>Evaluasi<br>Dosen',
-        align: 'center',
-        verticalAlign: 'middle',
-        y: 60
-    },
-    tooltip: {
-        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-    },
-    accessibility: {
-        point: {
-            valueSuffix: '%'
-        }
-    },
-    plotOptions: {
-        pie: {
-            dataLabels: {
-                enabled: true,
-                distance: -50,
-                style: {
-                    fontWeight: 'bold',
-                    color: 'white'
-                }
-            },
-            startAngle: -90,
-            endAngle: 90,
-            center: ['50%', '75%'],
-            size: '110%'
-        }
-    },
-    series: [{
-        type: 'pie',
-        name: 'Modul Evaluasi Dosen',
-        innerSize: '50%',
-        data: [
-            ['Sangat setuju', 58.9],
-            ['Setuju', 13.29],
-            ['Ragu-Ragu', 13],
-            ['Tidak Setuju', 3.78],
-            ['Sangat Tidak Setuju', 3.42],
-        ]
-    }]
-});
-
-</script>
-*/ ?>
-<?php
-
-$this->title = 'data kuisioner dosen';
-
-foreach($dHasil as $values){
-    $a[0]=($values['id']);
-    $b[]=($values['id']);
-    $e[]= array('type'=>'column','id' =>$values['id'],
-    'data'=> array((int)$values['jwb']));
-    }
-echo Highcharts::widget([
-   'options'=>'{
-    "chart": {
-        "plotBackgroundColor": null,
-        "plotBorderWidth": 0,
-        "plotShadow": false
-    },
-    "title": {
-        "text": "Ketepatan<br>Waktu",
-        "align": "center",
-        "verticalAlign": "middle",
-        "y": 60
-    },
-    "tooltip": {
-        "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
-    },
-    "accessibility": {
-        "point": {
-            "valueSuffix": "%"
-        }
-    },
-    "plotOptions": {
-        "pie": {
-            "dataLabels": {
-                "enabled": true,
-                "distance": -50,
-                "style": {
-                    "fontWeight": "bold",
-                    "color": "white"
-                }
-            },
-            "startAngle": -90,
-            "endAngle": 90,
-            "center": ["50%", "75%"],
-            "size": "110%"
-        }
-    },
-   "series" =>$e [{
-        "type": "pie",  
-        "name": "Modul Evaluasi Dosen",
-        "innerSize": "50%",
-        "data": [
-            ["Sangat setuju", 58.9],
-            ["Setuju", 13.29],
-            ["Ragu-Ragu", 13],
-            ["Tidak Setuju", 3.78],
-            ["Sangat Tidak Setuju", 3.42]
-        ]
-    }]
-   }'
-]);
-
-echo Highcharts::widget([
-    'options'=>'{
-     "chart": {
-         "plotBackgroundColor": null,
-         "plotBorderWidth": 0,
-         "plotShadow": false
-     },
-     "title": {
-         "text": "Pemberian<br>FeedBack",
-         "align": "center",
-         "verticalAlign": "middle",
-         "y": 60
-     },
-     "tooltip": {
-         "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
-     },
-     "accessibility": {
-         "point": {
-             "valueSuffix": "%"
-         }
-     },
-     "plotOptions": {
-         "pie": {
-             "dataLabels": {
-                 "enabled": true,
-                 "distance": -50,
-                 "style": {
-                     "fontWeight": "bold",
-                     "color": "white"
-                 }
-             },
-             "startAngle": -90,
-             "endAngle": 90,
-             "center": ["50%", "75%"],
-             "size": "110%"
-         }
-     },
-    "series" =>$e [{
-         "type": "pie",  
-         "name": "Modul Evaluasi Dosen",
-         "innerSize": "50%",
-         "data": [
-             ["Sangat setuju", 58.9],
-             ["Setuju", 13.29],
-             ["Ragu-Ragu", 13],
-             ["Tidak Setuju", 3.78],
-             ["Sangat Tidak Setuju", 3.42]
-         ]
-     }]
-    }'
- ]);
-
-
- echo Highcharts::widget([
-    'options'=>'{
-     "chart": {
-         "plotBackgroundColor": null,
-         "plotBorderWidth": 0,
-         "plotShadow": false
-     },
-     "title": {
-         "text": "Penguasaan<br>Materi",
-         "align": "center",
-         "verticalAlign": "middle",
-         "y": 60
-     },
-     "tooltip": {
-         "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
-     },
-     "accessibility": {
-         "point": {
-             "valueSuffix": "%"
-         }
-     },
-     "plotOptions": {
-         "pie": {
-             "dataLabels": {
-                 "enabled": true,
-                 "distance": -50,
-                 "style": {
-                     "fontWeight": "bold",
-                     "color": "white"
-                 }
-             },
-             "startAngle": -90,
-             "endAngle": 90,
-             "center": ["50%", "75%"],
-             "size": "110%"
-         }
-     },
-    "series" =>$e [{
-         "type": "pie",  
-         "name": "Modul Evaluasi Dosen",
-         "innerSize": "50%",
-         "data": [
-             ["Sangat setuju", 58.9],
-             ["Setuju", 13.29],
-             ["Ragu-Ragu", 13],
-             ["Tidak Setuju", 3.78],
-             ["Sangat Tidak Setuju", 3.42]
-         ]
-     }]
-    }'
- ]);
-
- /*echo Highcharts::widget([
-    chart("diagramHasil", '{
-        "chart": {
-            "plotBackgroundColor": "null",
-            "plotBorderWidth": 0,
-            "plotShadow": "false"
-        },
-        title: {
-            text: 'Modul<br>Evaluasi<br>Dosen',
-            align: 'center',
-            verticalAlign: 'middle',
-            y: 60
-        },
-        tooltip: {
-            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-        },
-        accessibility: {
-            point: {
-                valueSuffix: '%'
-            }
-        },
-        plotOptions: {
-            pie: {
-                dataLabels: {
-                    enabled: true,
-                    distance: -50,
-                    style: {
-                        fontWeight: 'bold',
-                        color: 'white'
-                    }
-                },
-                startAngle: -90,
-                endAngle: 90,
-                center: ['50%', '75%'],
-                size: '110%'
-            }
-        },
-        series: [{
-            type: 'pie',
-            name: 'Modul Evaluasi Dosen',
-            innerSize: '50%',
-            data: [
-                ['Sangat setuju', 58.9],
-                ['Setuju', 13.29],
-                ['Ragu-Ragu', 13],
-                ['Tidak Setuju', 3.78],
-                ['Sangat Tidak Setuju', 3.42],
-            ]
-        }]
-    });
- ])*/
+</center>
+<?php $this->endWidget(); ?>
