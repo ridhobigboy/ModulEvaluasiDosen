@@ -140,14 +140,13 @@ class SiteController extends Controller
     }
     public  function actionDiagramHasil()
     {
-        $sql='SELECT count(id),Jawaban FROM jawaban_kuisioner_log GROUP BY jawaban';
-
-        $dataProvider=new CSqlDataProvider($sql,array(
-            'keyField' => 'id',
-        ));
-
-        $this->render('diagramHasil',array(
-            'dataProvider'=>$dataProvider
+        $sql='SELECT count(id),jawaban_kuisioner FROM DosenAis GROUP BY id';
+		
+		$dataProvider=new CSqlDataProvider($sql,array(
+                            'keyField' => 'id',
+		));
+		$this->render('stus',array(
+			'dataProvider'=>$dataProvider,
         ));
     }
     public function actionForm()
