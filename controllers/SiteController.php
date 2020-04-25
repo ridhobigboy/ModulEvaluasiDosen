@@ -1,6 +1,7 @@
 <?php
 
 namespace app\controllers;
+namespace app\models;
 
 use Yii;
 use yii\filters\AccessControl;
@@ -16,7 +17,12 @@ use app\models\Kelas;
 use app\models\JawabanKuisioner;
 use app\models\Dosen;
 use app\models\KuisionerKelas;
+//use yii\db\ActiveQuery;
+use yii\db\ActiveRecord;
 
+class Kuisioner_kelas extends ActiveRecord{
+
+}
 
 class SiteController extends Controller
 {
@@ -140,17 +146,10 @@ class SiteController extends Controller
     }
     public  function actionDiagramHasil()
     {
-        $sql='SELECT count(id),jawaban_kuisioner FROM DosenAis GROUP BY id';
-		
-		$dataProvider=new CSqlDataProvider($sql,array(
-                            'keyField' => 'id',
-		));
-		$this->render('stus',array(
-			'dataProvider'=>$dataProvider,
-        ));
+     return $this->render('diagramHasil');
     }
-    public function actionForm()
+    public function actionKuisionerKelas()
     {
-        return $this->render('form');
+        return $this->render('kuisonerkelas');
     }
 }
