@@ -6,7 +6,7 @@ use yii\helpers\Html;
 use miloschuman\highcharts\Highcharts;
 //use dosamigos\highcharts\HighCharts;
 use app\controllers\SiteController;
-use yii\i18n\Formatter;
+//use yii\i18n\Formatter;
 /*$this->title= 'diagramHasil';
 $this->params['breadcrumbs'][] = $this->title; */
 
