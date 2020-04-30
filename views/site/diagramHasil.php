@@ -20,9 +20,7 @@ $posts = $provider->getModels();
 foreach ($posts as $post) {
     
 }*/
-?>
-
-<?php /*
+ /*
 <div id="diagramHasil"></div>
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -81,8 +79,8 @@ Highcharts.chart('diagramHasil', {
 });
 
 </script>
-*/ ?>
-<?php
+*/ 
+
 
 //$this->title = 'data kuisioner dosen';
 
@@ -192,6 +190,11 @@ Highcharts.chart('diagramHasil', {
     }'
  ]);*/
 
+    $this ->title = 'Modul Evaluasi Dosen';
+
+    foreach($models as $model){
+            
+    }
 
  echo Highcharts::widget([
     'options'=>'{

@@ -19,6 +19,7 @@ use app\models\Dosen;
 use app\models\KuisionerKelas;
 //use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
+use yii\i18n\Formatter;
 
 class Kuisioner_kelas extends ActiveRecord{
 
@@ -146,7 +147,16 @@ class SiteController extends Controller
     }
     public  function actionDiagramHasil()
     {
-     return $this->render('diagramHasil');
+     $query = KuisionerKelas::find();
+     $pages = new \yii\data\Pagination([
+         'totalCount' => $query->count(),
+         'pageSize' => 10
+     ]);
+     $models = $query->offset($pages->offset)->limit($pages->limit)->all();
+
+     return $this->render('DiagramHasil', [
+         'models' => $models, 'pages' => $pages,
+     ]);
     }
     public function actionKuisionerKelas()
     {
