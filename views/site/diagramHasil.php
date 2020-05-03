@@ -5,7 +5,8 @@
 use yii\helpers\Html;
 use miloschuman\highcharts\Highcharts;
 //use dosamigos\highcharts\HighCharts;
-use app\controllers\SiteController;
+//use app\controllers\SiteController;
+
 //use yii\i18n\Formatter;
 /*$this->title= 'diagramHasil';
 $this->params['breadcrumbs'][] = $this->title; */
@@ -192,8 +193,10 @@ Highcharts.chart('diagramHasil', {
 
     $this ->title = 'Modul Evaluasi Dosen';
 
-    foreach($models as $model){
-            
+    foreach($ddiagram as $values){
+            $a[0]= ($values['jawaban_id']);
+            $c[]= ($values['jawbaan_id']);
+            $b[]= array('type'=> 'column', 'name' =>$values['jawaban_id'], 'data'=>array((int)$values['jawaban_id']));
     }
 
  echo Highcharts::widget([

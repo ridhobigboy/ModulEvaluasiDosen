@@ -19,7 +19,7 @@ use app\models\Dosen;
 use app\models\KuisionerKelas;
 //use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
-use yii\i18n\Formatter;
+//use yii\i18n\Formatter;
 
 class Kuisioner_kelas extends ActiveRecord{
 
