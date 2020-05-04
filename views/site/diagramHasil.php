@@ -196,7 +196,7 @@ Highcharts.chart('diagramHasil', {
     foreach($ddiagram as $values){
             $a[0]= ($values['jawaban_id']);
             $c[]= ($values['jawbaan_id']);
-            $b[]= array('type'=> 'column', 'name' =>$values['jawaban_id'], 'data'=>array((int)$values['jawaban_id']));
+            $b[]= array('type'=> 'column', 'name' =>$values['jawaban_id'], 'data'=>array((int)$values['jawaban']));
     }
 
  echo Highcharts::widget([
@@ -213,7 +213,7 @@ Highcharts.chart('diagramHasil', {
          "y": 60
      },
      "tooltip": {
-         "pointFormat": "{series.name}: <b>{point.percentage:.1f}%</b>"
+         "pointFormat": "{series.jawaban}: <b>{point.percentage:.1f}%</b>"
      },
      "accessibility": {
          "point": {

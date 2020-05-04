@@ -1,5 +1,6 @@
 <?php
 
+//namespace app\controllers;
 namespace app\controllers;
 namespace app\models;
 
@@ -17,13 +18,11 @@ use app\models\Kelas;
 use app\models\JawabanKuisioner;
 use app\models\Dosen;
 use app\models\KuisionerKelas;
-//use yii\db\ActiveQuery;
-use yii\db\ActiveRecord;
-//use yii\i18n\Formatter;
+use yii\db\ActiveQuery;
+//use yii\db\ActiveRecord;
+use yii\i18n\Formatter;
 
-class Kuisioner_kelas extends ActiveRecord{
-
-}
+//class Kuisioner_kelas extends ActiveRecord{}
 
 class SiteController extends Controller
 {
@@ -147,16 +146,16 @@ class SiteController extends Controller
     }
     public  function actionDiagramHasil()
     {
-     $query = KuisionerKelas::find();
-     $pages = new \yii\data\Pagination([
-         'totalCount' => $query->count(),
-         'pageSize' => 10
-     ]);
-     $models = $query->offset($pages->offset)->limit($pages->limit)->all();
-
-     return $this->render('DiagramHasil', [
-         'models' => $models, 'pages' => $pages,
-     ]);
+        $data = Yii::$app->db->createCommand('select kuisioner_dosen.pertanyaan,kuisioner_kelas.nim,
+        jawaban_kuisioner.jawaban from kuisioner_dosen INNER JOIN kuisioner_kelas on kuisioner_dosen.id = kuisioner_kelas.pertanyaan_id
+        INNER JOIN jawaban_kuisioner on kuisioner_kelas.jawaban_id = jawaban_kuisioner.id;
+        
+        select jawaban_id,
+        sum(jawaban_id) as jawaban,
+        from kuisioner_kelas gorup by jawban_id')->queryAll();
+        return $this->render('diagram',[
+            'ddiagram' => $data
+        ]);
     }
     public function actionKuisionerKelas()
     {
