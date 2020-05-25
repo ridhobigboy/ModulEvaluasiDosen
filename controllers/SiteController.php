@@ -1,8 +1,7 @@
 <?php
 
-//namespace app\controllers;
 namespace app\controllers;
-namespace app\models;
+//namespace app\models;
 
 use Yii;
 use yii\filters\AccessControl;
@@ -20,7 +19,7 @@ use app\models\Dosen;
 use app\models\KuisionerKelas;
 use yii\db\ActiveQuery;
 //use yii\db\ActiveRecord;
-use yii\i18n\Formatter;
+use yii\helpers\ArrayHelper;
 
 //class Kuisioner_kelas extends ActiveRecord{}
 
@@ -146,19 +145,26 @@ class SiteController extends Controller
     }
     public  function actionDiagramHasil()
     {
-        $data = Yii::$app->db->createCommand('select kuisioner_dosen.pertanyaan,kuisioner_kelas.nim,
-        jawaban_kuisioner.jawaban from kuisioner_dosen INNER JOIN kuisioner_kelas on kuisioner_dosen.id = kuisioner_kelas.pertanyaan_id
-        INNER JOIN jawaban_kuisioner on kuisioner_kelas.jawaban_id = jawaban_kuisioner.id;
-        
-        select jawaban_id,
-        sum(jawaban_id) as jawaban,
-        from kuisioner_kelas gorup by jawban_id')->queryAll();
-        return $this->render('diagram',[
-            'ddiagram' => $data
-        ]);
+        // /*$hasil->join('kuisioner_dosen.pertanyaan,kuisioner_kelas.nim,jawaban_kuisioner.jawaban from kuisioner_dosen 
+        // INNER JOIN kuisioner_kelas kuisioner_dosen.id = kuisioner_kelas.pertanyaan_id INNER JOIN jawaban_kuisioner
+        // kuisioner_kelas.jawaban_id = jawaban_kuisioner.id;');*/
+        // $data = Yii::$app->db->createCommand(join(['select kuisioner_dosen.pertanyaan,kuisioner_kelas.nim,
+        // jawaban_kuisioner.jawaban from kuisioner_dosen INNER JOIN kuisioner_kelas on kuisioner_dosen.id = kuisioner_kelas.pertanyaan_id
+        // INNER JOIN jawaban_kuisioner on kuisioner_kelas.jawaban_id = jawaban_kuisioner.id;']));
+        // $hasil = Yii::$app->db->createCommand('select jawaban_id,
+        // sum(jawaban_id) as jawaban,
+        // from kuisioner_kelas gorup by jawaban_id')->queryAll();
+        // return $this->render('diagramHasil',[
+        //     'ddiagramHasil' => $hasil
+        // ]);
+        return $this->render('diagramHasil');
     }
     public function actionKuisionerKelas()
     {
-        return $this->render('kuisonerkelas');
+        // $model = new KuisionerKelas;
+        // if($model->load(Yii::$app->request->post())&&$model->validate()){
+        //     $model->save();
+        // }
+        // return $this->render('kuisonerkelas',compact('model'));
     }
 }

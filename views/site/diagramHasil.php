@@ -5,7 +5,7 @@
 use yii\helpers\Html;
 use miloschuman\highcharts\Highcharts;
 //use dosamigos\highcharts\HighCharts;
-//use app\controllers\SiteController;
+use app\controllers\SiteController;
 
 //use yii\i18n\Formatter;
 /*$this->title= 'diagramHasil';
@@ -16,11 +16,13 @@ $this->params['breadcrumbs'][] = $this->title; */
     ''
 );*/
 
-/*echo $formatter->asPercent(0.125, 2);
-$posts = $provider->getModels();
-foreach ($posts as $post) {
-    
-}*/
+// $this ->title = 'Modul Evaluasi Dosen';
+
+// foreach($ddiagramHasil as $values){
+//         $a[0]= ($values['jawaban_id']);
+//         //$c[]= ($values['jawbaan_id']);
+//         $b[]= array('type'=> 'column', 'name' =>$values['jawaban_id'], 'data'=>array((int)$values['jawaban']));
+// };
  /*
 <div id="diagramHasil"></div>
 
@@ -191,13 +193,6 @@ Highcharts.chart('diagramHasil', {
     }'
  ]);*/
 
-    $this ->title = 'Modul Evaluasi Dosen';
-
-    foreach($ddiagram as $values){
-            $a[0]= ($values['jawaban_id']);
-            $c[]= ($values['jawbaan_id']);
-            $b[]= array('type'=> 'column', 'name' =>$values['jawaban_id'], 'data'=>array((int)$values['jawaban']));
-    }
 
  echo Highcharts::widget([
     'options'=>'{

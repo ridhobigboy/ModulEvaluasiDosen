@@ -13,7 +13,7 @@ return [
     //'schemaCache' => 'cache',\
 
     'class' => 'yii\db\Connection',
-			//'driverName' => 'mysql',
+			'driverName' => 'mysql',
 			'dsn' => 'mysql:host=127.0.0.1;dbname=DosenAis',
 			'username' => 'root',
 			'password' => '',
