@@ -10,16 +10,16 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\KuisionerDosen;
-use app\models\Prodi;
-use app\models\Matakuliah;
-use app\models\Kelas;
-use app\models\JawabanKuisioner;
-use app\models\Dosen;
-use app\models\KuisionerKelas;
-use yii\db\ActiveQuery;
-//use yii\db\ActiveRecord;
-use yii\helpers\ArrayHelper;
+// use app\models\KuisionerDosen;
+// use app\models\Prodi;
+// use app\models\Matakuliah;
+// use app\models\Kelas;
+// use app\models\JawabanKuisioner;
+// use app\models\Dosen;
+// use app\models\KuisionerKelas;
+// use yii\db\ActiveQuery;
+// use yii\db\ActiveRecord;
+// use yii\helpers\ArrayHelper;
 
 //class Kuisioner_kelas extends ActiveRecord{}
 
@@ -47,12 +47,12 @@ class SiteController extends Controller
                     ],
                 ],
             ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+             'verbs' => [
+                 'class' => VerbFilter::className(),
+                 'actions' => [
+                     'logout' => ['post'],
+                    ],
+                 ],
         ];
     }
 
@@ -145,26 +145,7 @@ class SiteController extends Controller
     }
     public  function actionDiagramHasil()
     {
-        // /*$hasil->join('kuisioner_dosen.pertanyaan,kuisioner_kelas.nim,jawaban_kuisioner.jawaban from kuisioner_dosen 
-        // INNER JOIN kuisioner_kelas kuisioner_dosen.id = kuisioner_kelas.pertanyaan_id INNER JOIN jawaban_kuisioner
-        // kuisioner_kelas.jawaban_id = jawaban_kuisioner.id;');*/
-        // $data = Yii::$app->db->createCommand(join(['select kuisioner_dosen.pertanyaan,kuisioner_kelas.nim,
-        // jawaban_kuisioner.jawaban from kuisioner_dosen INNER JOIN kuisioner_kelas on kuisioner_dosen.id = kuisioner_kelas.pertanyaan_id
-        // INNER JOIN jawaban_kuisioner on kuisioner_kelas.jawaban_id = jawaban_kuisioner.id;']));
-        // $hasil = Yii::$app->db->createCommand('select jawaban_id,
-        // sum(jawaban_id) as jawaban,
-        // from kuisioner_kelas gorup by jawaban_id')->queryAll();
-        // return $this->render('diagramHasil',[
-        //     'ddiagramHasil' => $hasil
-        // ]);
         return $this->render('diagramHasil');
     }
-    public function actionKuisionerKelas()
-    {
-        // $model = new KuisionerKelas;
-        // if($model->load(Yii::$app->request->post())&&$model->validate()){
-        //     $model->save();
-        // }
-        // return $this->render('kuisonerkelas',compact('model'));
-    }
+    
 }
