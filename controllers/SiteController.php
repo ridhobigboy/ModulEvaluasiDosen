@@ -10,16 +10,8 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-// use app\models\KuisionerDosen;
-// use app\models\Prodi;
-// use app\models\Matakuliah;
-// use app\models\Kelas;
-// use app\models\JawabanKuisioner;
-// use app\models\Dosen;
-// use app\models\KuisionerKelas;
-// use yii\db\ActiveQuery;
-// use yii\db\ActiveRecord;
-// use yii\helpers\ArrayHelper;
+
+
 
 //class Kuisioner_kelas extends ActiveRecord{}
 
@@ -143,9 +135,9 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-    public  function actionDiagramHasil()
+    public  function actionDiagram()
     {
-        return $this->render('diagramHasil');
+        return $this->render('diagram');
     }
     
 }
