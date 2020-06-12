@@ -3,10 +3,20 @@
  //@var $this yii\web\view 
 
 //use yii\helpers\Html;
-use miloschuman\highcharts\Highcharts;
-//use dosamigos\highcharts\HighCharts;
-use app\controllers\SiteController;
+//use miloschuman\highcharts\Highcharts;
+use dosamigos\highcharts\HighCharts;
+//use app\controllers\SiteController;
 
+$this->title = 'Diagram Hasil';
+
+foreach($dgrafik as $values){
+    $a[0] = ($values['jawaban']);
+    $b[] = ($values['jawaban']);
+    $c[] = ($values['jawaban']);
+    $d[] = ($values['jawaban']);
+    $e[] = array('type' => 'column', 'jawaban_kuisioner' => ['jawaban'],
+    'data' => array((int)$values['jawaban']));
+}
 
  echo Highcharts::widget([
     'options'=>'{
