@@ -5,17 +5,17 @@
 //use yii\helpers\Html;
 //use miloschuman\highcharts\Highcharts;
 use dosamigos\highcharts\HighCharts;
-//use app\controllers\SiteController;
+use app\controllers\SiteController;
 
 $this->title = 'Diagram Hasil';
 
-foreach($dgrafik as $values){
-    $a[0] = ($values['jawaban']);
-    $b[] = ($values['jawaban']);
-    $c[] = ($values['jawaban']);
-    $d[] = ($values['jawaban']);
-    $e[] = array('type' => 'column', 'jawaban_kuisioner' => ['jawaban'],
-    'data' => array((int)$values['jawaban']));
+foreach($Djawaban as $values){
+    $a[0] = ($values['Djawaban']);
+    $b[] = ($values['Djawaban']);
+    $c[] = ($values['Djawaban']);
+    $d[] = ($values['Djawaban']);
+    $e[] = array('type' => 'column', 'Djawaban' => $values ['jawaban_kuisioner'],
+    'data' => array((int)$values['Djawaban']));
 }
 
  echo Highcharts::widget([

@@ -74,7 +74,9 @@ class KuisionerKelas extends ActiveRecord
      */
     public function getJawaban()
     {
-        return $this->hasOne(JawabanKuisioner::className(), ['id' => 'jawaban_id']);
+        return $this->hasOne(JawabanKuisioner::className(), ['id' => 'jawaban_id'
+        ->viatable('kuisioner_kelas',['id'=>'jawaban_id'])
+        ]); 
     }
 
     /**
@@ -82,6 +84,8 @@ class KuisionerKelas extends ActiveRecord
      */
     public function getPertanyaan()
     {
-        return $this->hasOne(KuisionerDosen::className(), ['id' => 'pertanyaan_id']);
+        return $this->hasOne(KuisionerDosen::className(), ['id' => 'pertanyaan_id'
+        ->viatable('kuisioner_kelas',['id'=>'pertanyaan_id'])
+        ]);
     }
 }
