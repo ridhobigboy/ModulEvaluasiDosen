@@ -57,7 +57,7 @@ AppAsset::register($this);
                     'label' => 'Question', 'url' =>['evaluasi/kuisioner-dosen'],
                 ],
                 [
-                    'label' => 'Diagram Hasil', 'url'=>['/site/diagram'],
+                    'label' => 'Diagram Hasil', 'url'=>['/site/kuisioner-kelas-diagram'],
                 ]
         ],
     ]);

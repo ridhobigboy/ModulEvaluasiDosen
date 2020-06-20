@@ -10,6 +10,7 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\KuisionerKelas;
 
 
 
@@ -135,14 +136,16 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-    public  function actionDiagram()
+    public  function actionKuisionerKelasDiagram()
     {
-        $Djawaban = Yii::$app->db->createCommand('select kuisioner_dosen.pertanyaan,kuisioner_kelas.nim , jawaban_kuisioner.jawaban from kuisioner_dosen INNER JOIN kuisioner_kelas on kuisioner_dosen.id = kuisioner_kelas.pertanyaan_id INNER JOIN jawaban_kuisioner on kuisioner_kelas.jawaban_id = jawaban_kuisioner.id;
-        sum(jawaban_kuisioner) as jawaban from DosenAis
-        group by jawaban')->queryAll();
-        return $this->render('diagram', [
-            'Djawaban' => $Djawaban
-            ]);
+       $data = Yii::$app->db->createCommand('
+       Select kuisioner_dosen.pertanyaan,kuisioner_kelas.nim , jawaban_kuisioner.jawaban from kuisioner_dosen INNER JOIN kuisioner_kelas on kuisioner_dosen.id = kuisioner_kelas.pertanyaan_id INNER JOIN jawaban_kuisioner on kuisioner_kelas.jawaban_id = jawaban_kuisioner.id,
+       sum(jawaban_kuisioner) as jawaban
+       from jawaban_kuisioner
+       group by id');
+       return $this->render('KuisionerKelasdiagram',[
+           'jawaban' => $data
+       ]);
     }
     
 }
