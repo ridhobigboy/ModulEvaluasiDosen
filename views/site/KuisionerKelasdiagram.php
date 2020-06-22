@@ -7,12 +7,7 @@
 use dosamigos\highcharts\HighCharts;
 //use app\controllers\SiteController;
 
-    foreach($jawaban as $values) {
-        $a[0]= ($values['jawaban']);
-        $b[]= ($values['jawaban']);
-        $c[]= array('type'=> 'pie', 'jawaban_id'=>$values['jawaban'],
-        'data' => array((int)$values['jawaban']));
-    }
+   
  echo Highcharts::widget([
     'options'=>'{
     "chart": {

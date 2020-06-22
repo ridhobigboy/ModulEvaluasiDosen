@@ -7,22 +7,27 @@ use yii\db\Query;
 use yii\web\Controller;
 use app\models\JawabanKuisioner;
 
-class KuisionerKelasController extends \yii\web\Controller
+
+class KuisionerKelasController extends Controller
 {
     public function actionIndex()
     {
-        // $db = new Connection([
-        //     'dsn' => 'mysql:host=localhost;dbname=DosenAis',
-        //     'username' => 'root',
-        //     'password' => '',
-        //     'cahrset' => 'utf8',
-        //     'tablePrefix' => 
-        // ]);
-        // $db = \Yii::$app->db;
+        $query = KuisionerKelas::find();
 
-        $data = $this->queryData();
+        $pagination = new pagination([
+            'defaultPagesize' => 5,
+            'totalCount' => $query->Count(),
+        ]);
+        
+        $KuisionerKelas = $query->orderBy('id')
+        ->offset($pagination->offset)
+        ->limit($pagination->limit)
+        ->all();
 
-        return $this->printTable($data);
+        return $this->render('index', [
+            'KuisionerKelas' => $KuisionerKelas,
+            'pagination' => $pagination,
+        ]);
     }
     private function queryData() 
     {
