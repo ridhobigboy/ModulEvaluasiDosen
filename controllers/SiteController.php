@@ -137,16 +137,16 @@ class SiteController extends Controller
         return $this->render('about');
     }
     public  function actionKuisionerKelasDiagram()
-    {
-        $data = KuisionerKelas::find()
-        ->join(['KuisionerDosen'])
-        ->where(['kusioner_dosen.pertanyaan', 'kuisioner_kelas.nim','jawaban_kuisioner.jawaban'])
-        ->andWhere(['kuisioner_dosen.id','kuisioner_kelas.pertanyaan_id'])
-        ->andWhere(['kuisioner_kelas.jawaban_id','jawaban_kuisioner.id'])
-        ->all();
-    
-        return $this->render('kuisionerkelasdiagram', [
-            'data' => $data
+    {   
+         $KuisionerKelas = Yii::$app->db->createCommand()
+                         ->select('pertanyaan,jawaban,nim')
+                       ->from('kuisioner_kelas k')
+                        ->join('kuisioner_dosen kd ,jawaban_kuisioner js' ,'pertanyaan_id =id, jawaban_id=id')
+                        ->where('jawaban_id =: id, pertanyaan_id =:id', array(':id'=>$id))
+                        ->queryRow();
+        
+        return $this->render('KuisionerKelasdiagram',[
+            'KuisionerKelas' => $KuisionerKelas,
         ]);
     }
     

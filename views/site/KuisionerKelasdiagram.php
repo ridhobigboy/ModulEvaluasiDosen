@@ -7,7 +7,15 @@
 use dosamigos\highcharts\HighCharts;
 //use app\controllers\SiteController;
 
-   
+    $KuisionerKelas = Yii::$app->db->createCommand()
+    ->select('pertanyaan,jawaban,nim')
+    ->from('kuisioner_kelas k')
+    ->join('kuisioner_dosen kd ,jawaban_kuisioner js' ,'pertanyaan_id =id, jawaban_id=id')
+    ->where('jawaban_id =: id, pertanyaan_id =:id', array(':id'=>$id))
+    ->queryRow();
+
+    foreach()
+
  echo Highcharts::widget([
     'options'=>'{
     "chart": {
