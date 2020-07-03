@@ -14,7 +14,7 @@ use dosamigos\highcharts\HighCharts;
     ->where('jawaban_id =: id, pertanyaan_id =:id', array(':id'=>$id))
     ->queryRow();
 
-    foreach()
+    //foreach()
 
  echo Highcharts::widget([
     'options'=>'{
