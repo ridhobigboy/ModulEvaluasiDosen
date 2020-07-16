@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\KuisionerKelas;
+use app\models\JawabanKuisioner;
 
 
 
@@ -138,15 +139,13 @@ class SiteController extends Controller
     }
     public  function actionKuisionerKelasDiagram()
     {   
-         $KuisionerKelas = Yii::$app->db->createCommand()
-                         ->select('pertanyaan,jawaban,nim')
-                       ->from('kuisioner_kelas k')
-                        ->join('kuisioner_dosen kd ,jawaban_kuisioner js' ,'pertanyaan_id =id, jawaban_id=id')
-                        ->where('jawaban_id =: id, pertanyaan_id =:id', array(':id'=>$id))
-                        ->queryRow();
-        
-        return $this->render('KuisionerKelasdiagram',[
-            'KuisionerKelas' => $KuisionerKelas,
+        $data = Yii::$app->db->createCommand('select id,
+        sum (jawaban) as jwb
+        from jawaban_kuisioner
+        group by id');
+        //->queryAll();
+        return $this->render('KuisionerKelasdiagram', [
+            'grafik' => $data,
         ]);
     }
     
